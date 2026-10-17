@@ -1,33 +1,51 @@
-# SW1-S Tier I Java Supercert: Readiness Tracker Challenge
+# SW1-S Tier I Java Supercert: From-Scratch FRC Readiness Tool
 
-Student task: Design and complete a small Java console application for tracking certification readiness. This is a challenge brief, not a build recipe. Do not change `ProctorTest.java`.
+This required capstone follows SW1-00 through SW1-15. It is deliberately different from the small certifications: there are no starter Java files, required class names, or automated proctor test.
 
-## Scenario
+## Starting point
 
-FRC 4418 needs a way to track students who are working through certifications. A student has an ID, a name, and zero or more assessment scores. A mentor needs to find a student, see a clear report, and decide whether that student needs help, is on track, or exceeds expectations.
+This folder contains only this brief and `PROCTOR_RUBRIC.md`. Create your own Java project here. You choose the file names, classes, methods, fields, and internal structure.
 
-Use the supplied public file names and method signatures so the proctor test can run. You may add private helpers and reasonable supporting code. Choose the internal organization yourself, but your design must demonstrate the following:
+Before coding, create `DESIGN.md`. In a few short paragraphs or a diagram, explain the main classes you expect to create, what each owns, and how information will move through the program.
 
-* a class hierarchy and an interface used for a real purpose;
-* private state with methods that give other code the behavior it needs;
-* a collection, loops, and an enum used where they make sense;
-* one lambda or method reference used to build the combined report; and
-* safe conversion of a typed score, including handling bad input without a crash.
+## Challenge
 
-## Required behavior
+Build a Java console tool for FRC 4418 that helps a mentor track certification readiness.
 
-* `Student` represents a student with an ID, name, and score history. An empty history averages to `0.0`.
-* A student below `70.0` needs help, `70.0` through `89.9` is on track, and `90.0` or higher exceeds expectations.
-* `report()` must communicate the ID, name, average, and status. For a student with ID `7`, name `Ada`, and scores `80` and `90`, it returns exactly `7 Ada: 85.0 ON_TRACK`.
-* `findById` returns the matching student or `null` when no match exists.
-* `reportAll` returns one report per student, in list order, separated by one newline with no final newline.
-* `parseScore` accepts a trimmed whole-number score from `0` through `100` and returns `-1` for bad text or a score outside that range.
-* `main` demonstrates the program by creating Ada with scores `80` and `90` and printing her report.
+The mentor must be able to:
 
-Be prepared to give the proctor a brief code tour: explain one class-boundary decision, why the list is owned where it is, and how your code prevents invalid input from interrupting the program.
+* store at least three people, each with a unique identifier, name, and zero or more assessment scores;
+* find a person by their identifier;
+* see a readable readiness report for one person and for the stored group;
+* record an accurate decimal average for a person with scores;
+* label an average below `70` as **Needs Support**, `70` through `89.9` as **On Track**, and `90` or above as **Exceeds**;
+* handle a person with no scores without crashing; and
+* safely reject typed scores that are not whole numbers from `0` through `100`.
 
-Run:
+The wording and layout of the console output are your choice. The program must make its behavior clear to a mentor reading it.
 
-    javac *.java
-    java ProctorTest
-    java ProgressTracker
+## Design expectations
+
+This is not a request for one giant `main` method. Make purposeful design choices:
+
+* use multiple classes with clear responsibilities;
+* keep state private when outside code should not change it directly;
+* use a collection and a loop to work with score data;
+* handle invalid typed input without allowing the program to crash; and
+* use an enum, interface, inheritance, lambda, or method reference only where it makes the design clearer. Be ready to explain why you used it, or why a simpler design was better.
+
+Create `TESTING.md` with at least three tests you ran: one normal case, one boundary case, and one invalid-input case. Include the input, expected result, and observed result.
+
+## Demonstration and code review
+
+Run the program for the proctor. The demonstration must show:
+
+* three stored people;
+* a successful lookup;
+* a normal readiness report;
+* a person with no scores; and
+* rejected invalid input.
+
+Give a short code tour. Explain your major class boundaries, how score data is protected, how bad input is handled, and one decision you considered but did not use.
+
+The proctor will ask for one small follow-up change, such as adding a report field, changing a display label, or adding one validation case. Make the change without breaking existing behavior.
