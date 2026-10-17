@@ -6,12 +6,12 @@ public class TeamInfo {
     }
 
     public static String teamName() {
-        // TODO: return Falcon Robotics.
+        // TODO: return Impulse.
         return "";
     }
 
     public static int teamNumber() {
-        // TODO: return 9999.
+        // TODO: return 4418.
         return 0;
     }
 }

@@ -23,7 +23,7 @@ public class ProctorTest {
         check("contains", inventory.contains("Kraken"));
         check("remove existing", inventory.remove("Kraken"));
         check("size after remove", inventory.size() == 1);
-        check("remove missing", !inventory.remove("Falcon"));
+        check("remove missing", !inventory.remove("Impulse"));
         finish();
     }
 }

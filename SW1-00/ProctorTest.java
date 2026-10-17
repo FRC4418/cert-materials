@@ -17,8 +17,8 @@ public class ProctorTest {
         if (passed != total) System.exit(1);
     }
     public static void main(String[] args) {
-        check("team name", TeamInfo.teamName().equals("Falcon Robotics"));
-        check("team number", TeamInfo.teamNumber() == 9999);
+        check("team name", TeamInfo.teamName().equals("Impulse"));
+        check("team number", TeamInfo.teamNumber() == 4418);
         finish();
     }
 }

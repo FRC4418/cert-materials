@@ -17,10 +17,10 @@ public class ProctorTest {
         if (passed != total) System.exit(1);
     }
     public static void main(String[] args) {
-        check("clean name", TeamNameFormatter.cleanName("  Falcon Robotics ").equals("FALCON ROBOTICS"));
+        check("clean name", TeamNameFormatter.cleanName("  Impulse ").equals("IMPULSE"));
         check("initials", TeamNameFormatter.initials("Ada", "Lovelace").equals("AL"));
         check("team word case insensitive", TeamNameFormatter.hasTeamWord("Our team is ready"));
-        check("label", TeamNameFormatter.label(9999, "Falcon Robotics").equals("Team 9999: FALCON ROBOTICS"));
+        check("label", TeamNameFormatter.label(4418, "Impulse").equals("Team 4418: IMPULSE"));
         finish();
     }
 }
