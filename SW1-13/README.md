@@ -1,11 +1,19 @@
-# SW1-13 Lambdas Method References and Suppliers
+# SW1-13 Lambdas, Method References, and Suppliers
 
-Student task: Complete `SupplierDemo.java`.
+Student task: Complete `SupplierDemo.java`. Do not change the supplied test.
 
-* `Settings` stores a boolean enabled and a double speed, with getters and setters.
-* `enabledSupplier(settings)` returns a `java.util.function.BooleanSupplier` made with a lambda that reads the current enabled value.
-* `speedSupplier(settings)` returns a `java.util.function.DoubleSupplier` made with the method reference `settings::getSpeed`.
-* The two suppliers must report updated settings when the settings object changes after the supplier is created.
+## Scenario
+
+Another part of a program needs to ask for a driver's enabled state and speed later, not just once when it is configured. Build supplier methods that continue to read the current settings after the `Settings` object changes.
+
+The public behavior is the contract. Decide how to organize the code so it remains clear and avoids captured copies of values.
+
+* `Settings` stores an enabled flag and speed, with normal getters and setters.
+* `enabledSupplier(settings)` returns a `BooleanSupplier` built with a lambda.
+* `speedSupplier(settings)` returns a `DoubleSupplier` built with the method reference `settings::getSpeed`.
+* After either supplier is created, a later change to `settings` must be visible through that same supplier.
+
+Before the proctor signs off, explain why a supplier that captured the value at creation time would fail this scenario.
 
 Run:
 

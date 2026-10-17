@@ -1,20 +1,30 @@
-# SW1-S Tier I Java Supercert: Student Progress Tracker
+# SW1-S Tier I Java Supercert: Readiness Tracker Challenge
 
-Student task: Complete this console project. Do not change `ProctorTest.java`.
+Student task: Design and complete a small Java console application for tracking certification readiness. This is a challenge brief, not a build recipe. Do not change `ProctorTest.java`.
 
-The project tracks students and their assessment scores.
+## Scenario
 
-* `Status` must be an enum with `NEEDS_HELP`, `ON_TRACK`, and `EXCEEDS`.
-* `Reportable` must declare `String report()`.
-* `Person` is an abstract class with protected `name`, a constructor, and `getName()`.
-* `Student` extends `Person`, implements `Reportable`, stores a private `int id` and private `ArrayList<Integer> scores`, has `addScore`, `average`, `status`, and `report`.
-* `average` uses a loop. It returns 0.0 with no scores.
-* `status` is NEEDS_HELP below 70.0, ON_TRACK from 70.0 through 89.9, and EXCEEDS at 90.0 or above.
-* `report` returns exactly `7 Ada: 85.0 ON_TRACK` for id 7, name Ada, and average 85.0.
-* `ProgressTracker.findById(students, id)` searches a `List<Student>` and returns the matching student, or null.
-* `ProgressTracker.reportAll(students)` uses a lambda or method reference to return the reports in list order, joined by `\n` with no final newline.
-* `ProgressTracker.parseScore(text)` uses try/catch to return -1 for non-numbers or values outside 0 through 100.
-* `main` creates Ada (id 7) with scores 80 and 90, then prints exactly `7 Ada: 85.0 ON_TRACK`.
+FRC 4418 needs a way to track students who are working through certifications. A student has an ID, a name, and zero or more assessment scores. A mentor needs to find a student, see a clear report, and decide whether that student needs help, is on track, or exceeds expectations.
+
+Use the supplied public file names and method signatures so the proctor test can run. You may add private helpers and reasonable supporting code. Choose the internal organization yourself, but your design must demonstrate the following:
+
+* a class hierarchy and an interface used for a real purpose;
+* private state with methods that give other code the behavior it needs;
+* a collection, loops, and an enum used where they make sense;
+* one lambda or method reference used to build the combined report; and
+* safe conversion of a typed score, including handling bad input without a crash.
+
+## Required behavior
+
+* `Student` represents a student with an ID, name, and score history. An empty history averages to `0.0`.
+* A student below `70.0` needs help, `70.0` through `89.9` is on track, and `90.0` or higher exceeds expectations.
+* `report()` must communicate the ID, name, average, and status. For a student with ID `7`, name `Ada`, and scores `80` and `90`, it returns exactly `7 Ada: 85.0 ON_TRACK`.
+* `findById` returns the matching student or `null` when no match exists.
+* `reportAll` returns one report per student, in list order, separated by one newline with no final newline.
+* `parseScore` accepts a trimmed whole-number score from `0` through `100` and returns `-1` for bad text or a score outside that range.
+* `main` demonstrates the program by creating Ada with scores `80` and `90` and printing her report.
+
+Be prepared to give the proctor a brief code tour: explain one class-boundary decision, why the list is owned where it is, and how your code prevents invalid input from interrupting the program.
 
 Run:
 
